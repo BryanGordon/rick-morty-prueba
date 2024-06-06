@@ -11,10 +11,6 @@ export function Zones () {
       <div className='zones-container'>
         <article className='zones-card'>
 
-          <picture>
-            <img src='img.com' alt='imagen-de-la-zona' />
-          </picture>
-
           <div className='zone-info-container'>
 
             <h4>Nombre de la ubicacion</h4>
