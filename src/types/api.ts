@@ -57,9 +57,7 @@ export type RickMortyCharacters = {
   results: Characters[];
 }
 
-export const GetLocations = async () => {
-  const req = fetch('https://rickandmortyapi.com/api/location')
-  const location = (await req).json()
-
-  return location
+export type RickMortyLocations = {
+  info: Info
+  results: Locations[]
 }
