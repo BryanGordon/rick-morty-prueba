@@ -1,11 +1,24 @@
 import { Navbar } from './Navbar'
-import { type Characters, res } from '../types/api'
+import { UseData } from '../hook/useData'
+import { Characters, type RickMortyCharacters} from '../types/api'
+
+const { getCharacters } = UseData()
+const data = await getCharacters()
+console.log('component   ' + data)
 
 export function Home () {
-  const data: Characters = res
-  console.log('component   ' + res)
   return (
     <section>
+      {
+        data.map((ch) => (
+          <div key={ch.id}>
+            <span style={{ color: 'white' }}>{ch.name}</span>
+            <span style={{ color: 'white' }}>{ch.species}</span>
+            <span style={{ color: 'white' }}>{ch.status}</span>
+            <span style={{ color: 'white' }}>{ch.gender}</span>
+          </div>
+        ))
+      }
       <header>
         <h1>Personajes</h1>
         <Navbar />
