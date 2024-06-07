@@ -1,24 +1,61 @@
-export type Characters = {
-  id: number | null
-  name: string
-  status: string | null
-  species: string | null
-  gender: string | null
-  image: string
+export type Info = {
+  count: number;
+  pages: number;
+  next: string;
+  prev: null;
 }
 
 export type Locations = {
-  id: number
-  name: string
-  type: string
-  dimesion: string
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: string[];
+  url: string;
+  created: Date;
 }
 
-const req = await fetch('https://rickandmortyapi.com/api/character')
-const character = await req.json()
+export enum Gender {
+  Female = "Female",
+  Male = "Male",
+  Unknown = "unknown",
+}
 
-export const res = character.results
-console.log('res-api   ' + res)
+export type Location = {
+  name: string;
+  url: string;
+}
+
+export enum Species {
+  Alien = "Alien",
+  Human = "Human",
+}
+
+export enum Status {
+  Alive = "Alive",
+  Dead = "Dead",
+  Unknown = "unknown",
+}
+
+export type Characters = {
+  id: number;
+  name: string;
+  status: Status;
+  species: Species;
+  type: string;
+  gender: Gender;
+  origin: string;
+  location: Location;
+  image: string;
+  episode: string[];
+  url: string;
+  created: Date;
+}
+
+export type RickMortyCharacters = {
+  info: Info;
+  results: Characters[];
+}
 
 export const GetLocations = async () => {
   const req = fetch('https://rickandmortyapi.com/api/location')
