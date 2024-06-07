@@ -1,4 +1,8 @@
 import { Navbar } from './Navbar'
+import { UseData } from '../hook/useData'
+
+const { getLocations } = UseData()
+const data = await getLocations()
 
 export function Zones () {
   return (
@@ -9,21 +13,26 @@ export function Zones () {
       </header>
 
       <div className='zones-container'>
-        <article className='zones-card'>
+        {
+          data.map((location) => (
+            <article key={location.id} className='zones-card'>
 
-          <div className='zone-info-container'>
+              <div className='zone-info-container'>
 
-            <h4>Nombre de la ubicacion</h4>
+                <h4>{location.name}</h4>
 
-            <h5>Tipo:</h5>
-            <span>Nombre de tipo</span>
+                <h5>Tipo:</h5>
+                <span>{location.type}</span>
 
-            <h5>Dimension</h5>
-            <span>Nombre dimension</span>
+                <h5>Dimension</h5>
+                <span>{location.dimension}</span>
 
-          </div>
+              </div>
 
-        </article>
+            </article>
+          ))
+        }
+
       </div>
     </section>
   )
