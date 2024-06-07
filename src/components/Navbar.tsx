@@ -5,13 +5,13 @@ export function Navbar () {
     <nav>
       <ul>
         <li>
-          <Link to='/'>Home</Link>
+          <Link className='link' to='/'>Home</Link>
         </li>
         <li>
-          <Link to='/ubicaciones'>Ubicaciones</Link>
+          <Link className='link' to='/ubicaciones'>Ubicaciones</Link>
         </li>
         <li>
-          <Link to='/login'>Login</Link>
+          <Link className='link' to='/login'>Login</Link>
         </li>
       </ul>
     </nav>
