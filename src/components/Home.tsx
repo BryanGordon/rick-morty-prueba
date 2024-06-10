@@ -22,11 +22,14 @@ export function Home () {
                 <img src={character.image} alt={character.name} />
               </picture>
 
+              <h4>{character.name}</h4>
               <div className='pers-info-container'>
-                <h4>{character.name}</h4>
+                <h5>Especie: </h5>
+                <span className='status-zone'>{character.species}</span>
+                <h5>Status: </h5>
                 <span className='status-zone'>{character.status}</span>
-                <h5>{character.species}</h5>
-                <h5>{character.gender}</h5>
+                <h5>Genero: </h5>
+                <span>{character.gender}</span>
               </div>
 
             </article>
