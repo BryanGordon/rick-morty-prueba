@@ -17,14 +17,13 @@ export function Zones () {
           data.map((location) => (
             <article key={location.id} className='zones-card'>
 
+              <h4>{location.name}</h4>
               <div className='zone-info-container'>
 
-                <h4>{location.name}</h4>
-
-                <h5>Tipo:</h5>
+                <h5>Tipo: </h5>
                 <span>{location.type}</span>
 
-                <h5>Dimension</h5>
+                <h5>Dimension: </h5>
                 <span>{location.dimension}</span>
 
               </div>
