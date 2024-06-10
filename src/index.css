@@ -24,6 +24,13 @@ header {
   margin-bottom: 65px;
 }
 
+h5 {
+  font-size: bolder;
+  margin: 0;
+}
+
+/* Barra de navegacion */
+
 nav {
   min-width: 100%;
 }
@@ -39,20 +46,41 @@ ul {
   text-decoration: none;
 }
 
+/* Personajes */
+
 .players-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  gap: 16px;
+  margin: 30px;
 }
 
 .player-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #343434;
+  padding: 34px;
+  border-radius: 20px;
 }
+
+img {
+  border-radius: 30px;
+}
+
+.pers-info-container {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Zones */
 
 .zones-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(33.3%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  gap: 16px;
+  margin: 30px;
 }
 
 .zones-card {
@@ -60,4 +88,13 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #343434;
+  border-radius: 20px;
+}
+
+.zone-info-container {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
