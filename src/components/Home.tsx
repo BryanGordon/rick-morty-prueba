@@ -1,10 +1,13 @@
 import { Navbar } from './Navbar'
 import { UseData } from '../hook/useData'
+import { useState } from 'react'
+import { type Characters } from '../types/api'
 
 const { getCharacters } = UseData()
 const data = await getCharacters()
 
 export function Home () {
+  const [user, setUser] = useState<Characters>()
   return (
     <section>
       <header>
@@ -14,7 +17,7 @@ export function Home () {
 
       <div className='players-container'>
         {
-          data.map((character) => (
+          data.characters.map((character) => (
 
             <article key={character.id} className='player-card'>
 
@@ -36,6 +39,7 @@ export function Home () {
           ))
         }
       </div>
+      {/*<button onClick={() => setCurrentPage(currentPage + 1)}>Cargar mas Personajes</button>*/}
 
     </section>
   )
