@@ -1,13 +1,38 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Navbar } from './Navbar'
 import { UseData } from '../hook/useData'
-import { useState } from 'react'
-import { type Characters } from '../types/api'
-
-const { getCharacters } = UseData()
-const data = await getCharacters()
+import { useEffect, useRef, useState } from 'react'
+import { Characters } from '../types/api'
+import { UserIcon } from '../icons/UserIcon'
+import { FavoriteList } from './FavoriteList'
+import { useContext } from 'react'
+import { FavsContext } from '../context/FavsContext'
 
 export function Home () {
-  const [user, setUser] = useState<Characters>()
+  const { favs, setFavs } = useContext(FavsContext)
+  const { getCharacters } = UseData()
+  const firstCharacters = useRef<Characters[]>([])
+  const [character, setCharacters] = useState<Characters[]>([])
+  const [currentPage, setCurrentPage] = useState(1)
+  // const [fav, setFav] = useState<Characters[]>([])
+
+  const handleFavorites = (fav: Characters) => {
+    const aux = [...favs]
+    aux.push(fav)
+    setFavs(aux)
+  }
+
+  useEffect(() => {
+    getCharacters(currentPage)
+      .then(data => {
+        setCharacters(prevCharacters => {
+          const newCharacters = prevCharacters.concat(data)
+          firstCharacters.current = newCharacters
+          return newCharacters
+        })
+      })
+  }, [currentPage])
+
   return (
     <section>
       <header>
@@ -17,10 +42,11 @@ export function Home () {
 
       <div className='players-container'>
         {
-          data.characters.map((character) => (
-
+          character.map((character) => (
             <article key={character.id} className='player-card'>
-
+              <button onClick={() => handleFavorites(character)}>
+                <UserIcon />
+              </button>
               <picture>
                 <img src={character.image} alt={character.name} />
               </picture>
@@ -39,8 +65,7 @@ export function Home () {
           ))
         }
       </div>
-      {/*<button onClick={() => setCurrentPage(currentPage + 1)}>Cargar mas Personajes</button>*/}
-
+      <button onClick={() => setCurrentPage(currentPage + 1)}>Cargar mas Personajes</button>
     </section>
   )
 }
