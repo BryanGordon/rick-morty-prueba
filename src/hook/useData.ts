@@ -1,16 +1,12 @@
 import { RickMortyLocations, type RickMortyCharacters } from '../types/api'
 
 export function UseData () {
-  const getCharacters = async () => {
-    return await fetch('https://rickandmortyapi.com/api/character/?page=1')
+  const getCharacters = async (page: number) => {
+    return await fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
       .then(async res => {
         return (await res.json()) as RickMortyCharacters
       })
-      .then(res => {
-        return {
-          characters: res.results
-        }
-      })
+      .then(res => res.results)
   }
 
   const getLocations = async () => {
