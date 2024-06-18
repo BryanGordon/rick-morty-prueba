@@ -1,11 +1,15 @@
+import { useState } from 'react'
 import { UserIcon } from '../icons/UserIcon'
 
 export function Login () {
-  const user = '#adimin'
-  const password = '1234567890'
+  const [user, setUser] = useState('')
+  const [password, setPassword] = useState('')
+
+  const userPass = '#adimin'
+  const passwordPass = '1234567890'
 
   const handleLog = () => {
-    if ((user === '#adimin') && (password === '1234567890')) {
+    if ((user === userPass) && (password === passwordPass)) {
       console.log('Inicio de sesion')
     } else {
       alert('Usuario no coincide')
@@ -21,11 +25,11 @@ export function Login () {
         <form action='submit'>
           <div className='data-section'>
             <label className='input-title'>Ingrese el correo electronico:</label>
-            <input type='email' placeholder='example@gmail.com' className='input-form' />
+            <input onChange={(e) => setUser(e.target.value)} type='email' placeholder='example@gmail.com' className='input-form' />
           </div>
           <div className='data-section'>
             <label className='input-title'>Ingrese la contraseña:</label>
-            <input type='password' placeholder='Contraseña' className='input-form' />
+            <input onChange={(e) => setPassword(e.target.value)} type='password' placeholder='Contraseña' className='input-form' />
           </div>
         </form>
       </div>
