@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Zones } from './components/Zones'
 import { Login } from './components/Login'
 import { FavsContextProvider } from './context/FavsContext'
-import { FavoriteList } from './components/FavoriteList'
+import { Favorites } from './components/Favorites'
 
 function App () {
   return (
@@ -14,7 +14,7 @@ function App () {
             <Route path='/' element={<Home />} />
             <Route path='/ubicaciones' element={<Zones />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/favoritos' element={<FavoriteList />} />
+            <Route path='/favoritos' element={<Favorites />} />
           </Routes>
         </FavsContextProvider>
       </Router>
