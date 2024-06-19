@@ -1,20 +1,28 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Navbar } from './Navbar'
 import { UseData } from '../hook/useData'
 import { useEffect, useRef, useState } from 'react'
-import { Characters } from '../types/api'
+import { type Characters } from '../types/api'
 import { UserIcon } from '../icons/UserIcon'
-import { FavoriteList } from './FavoriteList'
 import { useContext } from 'react'
 import { FavsContext } from '../context/FavsContext'
 
 export function Home () {
-  const { favs, setFavs } = useContext(FavsContext)
+  const context = useContext(FavsContext)
   const { getCharacters } = UseData()
   const firstCharacters = useRef<Characters[]>([])
   const [character, setCharacters] = useState<Characters[]>([])
   const [currentPage, setCurrentPage] = useState(1)
-  // const [fav, setFav] = useState<Characters[]>([])
+
+  if (!context) {
+    return (
+      <div>
+        Loading...
+      </div>
+    )
+  }
+  const { favs, setFavs } = context
 
   const handleFavorites = (fav: Characters) => {
     const aux = [...favs]
@@ -44,9 +52,9 @@ export function Home () {
         {
           character.map((character) => (
             <article key={character.id} className='player-card'>
-              <button onClick={() => handleFavorites(character)}>
+              <span onClick={() => handleFavorites(character)}>
                 <UserIcon />
-              </button>
+              </span>
               <picture>
                 <img src={character.image} alt={character.name} />
               </picture>
