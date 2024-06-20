@@ -4,18 +4,24 @@ import { Zones } from './components/Zones'
 import { Login } from './components/Login'
 import { FavsContextProvider } from './context/FavsContext'
 import { Favorites } from './components/Favorites'
+import { FavZonesContextProvider } from './context/FavsZonesContext'
+import { LoginContextProvider } from './context/LoginContext'
 
 function App () {
   return (
     <main>
       <Router>
         <FavsContextProvider>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/ubicaciones' element={<Zones />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/favoritos' element={<Favorites />} />
-          </Routes>
+          <FavZonesContextProvider>
+            <LoginContextProvider>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/ubicaciones' element={<Zones />} />
+                <Route path='/favoritos' element={<Favorites />} />
+                <Route path='/login' element={<Login />} />
+              </Routes>
+            </LoginContextProvider>
+          </FavZonesContextProvider>
         </FavsContextProvider>
       </Router>
     </main>
