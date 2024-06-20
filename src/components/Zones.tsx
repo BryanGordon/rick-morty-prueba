@@ -52,15 +52,19 @@ export function Zones () {
         {
           zones.map((location) => (
             <article key={location.id} className='zones-card'>
-              <button onClick={() => handleFav(location)}><Star /></button>
 
-              <h4>{location.name}</h4>
+              <h4>
+                {location.name}
+                <span id='icon-star' onClick={() => handleFav(location)}>
+                  <Star />
+                </span>
+              </h4>
               <div className='zone-info-container'>
 
                 <h5>Tipo: </h5>
                 <span>{location.type}</span>
 
-                <h5>Dimension: </h5>
+                <h5>Dimensión: </h5>
                 <span>{location.dimension}</span>
 
               </div>
