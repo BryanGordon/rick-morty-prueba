@@ -1,16 +1,16 @@
 import React, { createContext, useState } from 'react';
-import { Characters } from '../types/api';
+import { type Characters } from '../types/api';
 
 interface FavsContextProps {
   children: React.ReactNode
 }
 
-interface Favs {
+type FavsCharacters = {
   favs: Characters[]
   setFavs: React.Dispatch<React.SetStateAction<Characters[]>>
 }
 
-export const FavsContext = createContext<Favs | undefined>(undefined)
+export const FavsContext = createContext<FavsCharacters | undefined>(undefined)
 
 export function FavsContextProvider ({ children }: FavsContextProps) {
   const [favs, setFavs] = useState<Characters[]>([])
