@@ -1,26 +1,39 @@
 import { useState } from 'react'
 import { UserIcon } from '../icons/UserIcon'
+import { useContext } from 'react'
+import { LoginContext } from '../context/LoginContext'
+import { Navbar } from './Navbar'
 
 export function Login () {
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
-
-  const userPass = '#adimin'
+  const context = useContext(LoginContext)
+  const userPass = '#admin1'
   const passwordPass = '1234567890'
+
+  if (context === undefined) {
+    return (
+      <div>Loading...</div>
+    )
+  }
+
+  const { logged, setLogged } = context
 
   const handleLog = () => {
     if ((user === userPass) && (password === passwordPass)) {
-      console.log('Inicio de sesion')
+      console.log('antes   ' + logged)
+      setLogged(!logged)
+      console.log('despues   ' + logged)
     } else {
       alert('Usuario no coincide')
     }
   }
   return (
     <section id='login-section'>
+      <Navbar />
       <div className='icon-container'>
         <UserIcon />
       </div>
-
       <div className='form-container'>
         <form action='submit'>
           <div className='data-section'>
@@ -33,7 +46,6 @@ export function Login () {
           </div>
         </form>
       </div>
-
       <div className='button-container'>
         <button onClick={handleLog} className='form-button'>Ingresar</button>
       </div>
