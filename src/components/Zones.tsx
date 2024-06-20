@@ -1,10 +1,48 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Navbar } from './Navbar'
 import { UseData } from '../hook/useData'
-
-const { getLocations } = UseData()
-const data = await getLocations()
+import { useContext, useEffect, useRef, useState } from 'react'
+import { Locations } from '../types/api'
+import { Star } from '../icons/Star'
+import { FavZonesContext } from '../context/FavsZonesContext'
 
 export function Zones () {
+  const context = useContext(FavZonesContext)
+  const { getLocations } = UseData()
+  const originalZones = useRef<Locations[]>([])
+  const [zones, setZones] = useState<Locations[]>([])
+  const [currentPage, setCurrentPage] = useState(1)
+
+  if (!context) {
+    return (
+      <div>
+        Loading...
+      </div>
+    )
+  }
+
+  const { favZones, setFavZones } = context
+
+  const handleFav = (fav: Locations) => {
+    let favorites = [...favZones]
+    favorites.push(fav)
+    setFavZones(favorites)
+  }
+
+  useEffect(() => {
+    getLocations(currentPage)
+      .then(
+        res => {
+          setZones(prevZones => {
+            const newZones = prevZones.concat(res)
+            originalZones.current = newZones
+            return newZones
+          })
+        }
+      )
+  }, [currentPage])
+
   return (
     <section>
       <header>
@@ -14,8 +52,9 @@ export function Zones () {
 
       <div className='zones-container'>
         {
-          data.map((location) => (
+          zones.map((location) => (
             <article key={location.id} className='zones-card'>
+              <button onClick={() => handleFav(location)}><Star /></button>
 
               <h4>{location.name}</h4>
               <div className='zone-info-container'>
@@ -33,6 +72,7 @@ export function Zones () {
         }
 
       </div>
+      <button onClick={() => setCurrentPage(currentPage + 1)}>Mostrar más zonas</button>
     </section>
   )
 }
