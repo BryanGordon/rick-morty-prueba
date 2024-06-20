@@ -26,18 +26,22 @@ export function Favorites () {
           {
             favsCharacters?.favs.map((character) => (
               <article key={character.id} className='player-card'>
+
                 <picture>
                   <img src={character.image} alt={character.name} />
                 </picture>
                 <h4>{character.name}</h4>
+
                 <div className='pers-info-container'>
                   <h5>Especie: </h5>
-                  <span className='status-zone'>{character.species}</span>
+                  <span>{character.species}</span>
                   <h5>Status: </h5>
-                  <span className='status-zone'>{character.status}</span>
+                  <span className='status-field'>{character.status}</span>
                   <h5>Genero: </h5>
-                  <span>{character.gender}</span>
+                  <span className='gender-field'>{character.gender}</span>
+                  <button style={{ backgroundColor: 'aquamarine', color: 'black', padding: '8px 25px', borderRadius: '15px', border: 'none' }}>Eliminar</button>
                 </div>
+
               </article>
             ))
           }
@@ -51,7 +55,7 @@ export function Favorites () {
                   <h5>Tipo: </h5>
                   <span>{location.type}</span>
 
-                  <h5>Dimension: </h5>
+                  <h5>Dimensión: </h5>
                   <span>{location.dimension}</span>
 
                 </div>
