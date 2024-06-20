@@ -1,8 +1,8 @@
-import { useContext } from "react"
-import { FavsContext } from "../context/FavsContext"
-import { Navbar } from "./Navbar"
-import { FavZonesContext } from "../context/FavsZonesContext"
-import { LoginContext } from "../context/LoginContext"
+import { useContext } from 'react'
+import { FavsContext } from '../context/FavsContext'
+import { FavZonesContext } from '../context/FavsZonesContext'
+import { LoginContext } from '../context/LoginContext'
+import { Navbar } from './Navbar'
 
 export function Favorites () {
   const favsCharacters = useContext(FavsContext)

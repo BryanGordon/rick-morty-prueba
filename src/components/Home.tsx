@@ -1,12 +1,9 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react-hooks/exhaustive-deps */
-import { Navbar } from './Navbar'
-import { UseData } from '../hook/useData'
-import { useEffect, useRef, useState } from 'react'
-import { type Characters } from '../types/api'
 import { UserIcon } from '../icons/UserIcon'
-import { useContext } from 'react'
+import { useEffect, useRef, useState, useContext } from 'react'
 import { FavsContext } from '../context/FavsContext'
+import { type Characters } from '../types/api'
+import { UseData } from '../hook/useData'
+import { Navbar } from './Navbar'
 
 export function Home () {
   const context = useContext(FavsContext)

@@ -1,11 +1,9 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react-hooks/exhaustive-deps */
-import { Navbar } from './Navbar'
-import { UseData } from '../hook/useData'
-import { useContext, useEffect, useRef, useState } from 'react'
-import { Locations } from '../types/api'
 import { Star } from '../icons/Star'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { FavZonesContext } from '../context/FavsZonesContext'
+import { type Locations } from '../types/api'
+import { UseData } from '../hook/useData'
+import { Navbar } from './Navbar'
 
 export function Zones () {
   const context = useContext(FavZonesContext)

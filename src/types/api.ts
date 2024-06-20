@@ -16,9 +16,9 @@ export type Locations = {
 }
 
 export enum Gender {
-  Female = "Female",
-  Male = "Male",
-  Unknown = "unknown",
+  Female = 'Female',
+  Male = 'Male',
+  Unknown = 'unknown'
 }
 
 export type Location = {
@@ -27,14 +27,14 @@ export type Location = {
 }
 
 export enum Species {
-  Alien = "Alien",
-  Human = "Human",
+  Alien = 'Alien',
+  Human = 'Human'
 }
 
 export enum Status {
-  Alive = "Alive",
-  Dead = "Dead",
-  Unknown = "unknown",
+  Alive = 'Alive',
+  Dead = 'Dead',
+  Unknown = 'unknown',
 }
 
 export type Characters = {

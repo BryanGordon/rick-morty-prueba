@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import { UserIcon } from '../icons/UserIcon'
-import { useContext } from 'react'
+import { useState, useContext } from 'react'
 import { LoginContext } from '../context/LoginContext'
 import { Navbar } from './Navbar'
 
@@ -8,6 +7,7 @@ export function Login () {
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
   const context = useContext(LoginContext)
+
   const userPass = '#admin1'
   const passwordPass = '1234567890'
 

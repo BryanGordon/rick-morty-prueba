@@ -1,5 +1,5 @@
-import React, { createContext, useState } from "react";
-import { Locations } from "../types/api";
+import React, { createContext, useState } from 'react'
+import { type Locations } from '../types/api'
 
 interface FavZonesContextProps {
   children: React.ReactNode

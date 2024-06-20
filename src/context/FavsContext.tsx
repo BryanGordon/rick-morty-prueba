@@ -1,5 +1,5 @@
-import React, { createContext, useState } from 'react';
-import { type Characters } from '../types/api';
+import React, { createContext, useState } from 'react'
+import { type Characters } from '../types/api'
 
 interface FavsContextProps {
   children: React.ReactNode
