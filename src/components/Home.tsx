@@ -1,4 +1,4 @@
-import { UserIcon } from '../icons/UserIcon'
+import { Star } from '../icons/Star'
 import { useEffect, useRef, useState, useContext } from 'react'
 import { FavsContext } from '../context/FavsContext'
 import { type Characters } from '../types/api'
@@ -49,21 +49,23 @@ export function Home () {
         {
           character.map((character) => (
             <article key={character.id} className='player-card'>
-              <span onClick={() => handleFavorites(character)}>
-                <UserIcon />
-              </span>
               <picture>
                 <img src={character.image} alt={character.name} />
               </picture>
 
-              <h4>{character.name}</h4>
+              <h4>
+                {character.name}
+                <span id='icon-star' onClick={() => handleFavorites(character)}>
+                  <Star />
+                </span>
+              </h4>
               <div className='pers-info-container'>
                 <h5>Especie: </h5>
-                <span className='status-zone'>{character.species}</span>
+                <span>{character.species}</span>
                 <h5>Status: </h5>
-                <span className='status-zone'>{character.status}</span>
+                <span className='status-field'>{character.status}</span>
                 <h5>Genero: </h5>
-                <span>{character.gender}</span>
+                <span className='gender-field'>{character.gender}</span>
               </div>
 
             </article>
