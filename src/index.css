@@ -82,6 +82,12 @@ img {
   align-items: center;
 }
 
+#icon-star {
+  position: absolute;
+  padding: 3px 0 0 10px;
+  cursor: pointer;
+}
+
 /* Zones */
 
 .zones-container {
