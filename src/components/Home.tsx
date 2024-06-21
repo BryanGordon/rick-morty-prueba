@@ -63,9 +63,9 @@ export function Home () {
                 <h5>Especie: </h5>
                 <span>{character.species}</span>
                 <h5>Status: </h5>
-                <span className='status-field'>{character.status}</span>
+                <span>{character.status}</span>
                 <h5>Genero: </h5>
-                <span className='gender-field'>{character.gender}</span>
+                <span>{character.gender}</span>
               </div>
 
             </article>
