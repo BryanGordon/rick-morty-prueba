@@ -3,6 +3,7 @@ import { FavsContext } from '../context/FavsContext'
 import { FavZonesContext } from '../context/FavsZonesContext'
 import { LoginContext } from '../context/LoginContext'
 import { Navbar } from './Navbar'
+import { Hearth } from '../icons/Hearth'
 
 export function Favorites () {
   const favsCharacters = useContext(FavsContext)
@@ -39,7 +40,10 @@ export function Favorites () {
                   <span className='status-field'>{character.status}</span>
                   <h5>Genero: </h5>
                   <span className='gender-field'>{character.gender}</span>
-                  <button style={{ backgroundColor: 'aquamarine', color: 'black', padding: '8px 25px', borderRadius: '15px', border: 'none' }}>Eliminar</button>
+                  <button style={{ backgroundColor: 'red', color: 'black', padding: '8px 25px', borderRadius: '15px', border: 'none' }}>
+                    Eliminar
+                    <Hearth />
+                  </button>
                 </div>
 
               </article>
