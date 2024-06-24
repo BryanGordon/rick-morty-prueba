@@ -74,7 +74,9 @@ export function Zones () {
         }
 
       </div>
-      <button onClick={() => setCurrentPage(currentPage + 1)}>Mostrar más zonas</button>
+      <div className='button-container'>
+        <button className='see-more-button' onClick={() => setCurrentPage(currentPage + 1)}>Mostrar más zonas</button>
+      </div>
     </section>
   )
 }
