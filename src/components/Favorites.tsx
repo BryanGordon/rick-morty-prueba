@@ -16,6 +16,14 @@ export function Favorites () {
 
   const { logged } = context
 
+  const handleDeleteFavCharacters = (id: number) => {
+    favsCharacters?.setFavs(favsCharacters?.favs.filter((fav) => fav.id !== id))
+  }
+
+  const handleDeleteFavLocations = (id: number) => {
+    favsZones?.setFavZones(favsZones?.favZones.filter((location) => location.id !== id))
+  }
+
   if (logged) {
     return (
       <>
@@ -40,7 +48,7 @@ export function Favorites () {
                   <span className='status-field'>{character.status}</span>
                   <h5>Genero: </h5>
                   <span className='gender-field'>{character.gender}</span>
-                  <button style={{ backgroundColor: 'red', color: 'black', padding: '8px 25px', borderRadius: '15px', border: 'none' }}>
+                  <button className='delete-button' onClick={() => handleDeleteFavCharacters(character.id)}>
                     Eliminar
                     <Hearth />
                   </button>
@@ -61,6 +69,11 @@ export function Favorites () {
 
                   <h5>Dimensión: </h5>
                   <span>{location.dimension}</span>
+
+                  <button className='delete-button' onClick={() => handleDeleteFavLocations(location.id)}>
+                    Eliminar
+                    <Hearth />
+                  </button>
 
                 </div>
 
