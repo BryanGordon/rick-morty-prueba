@@ -160,3 +160,33 @@ input {
   height: 80vh;
   align-content: center;
 }
+
+.delete-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(251, 11, 11, 0.719); 
+  color: black;
+  font-weight: 600;
+  padding: 6px 22px;
+  border-radius: 15px; 
+  border: none;
+  cursor: pointer;
+}
+
+.icon-hearth {
+  padding: 0 0 0 7px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.see-more-button {
+  background-color: cadetblue;
+  border-radius: 15px;
+  border: none;
+  padding: 10px 30px;
+  cursor: pointer;
+}
