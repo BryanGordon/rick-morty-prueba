@@ -72,7 +72,9 @@ export function Home () {
           ))
         }
       </div>
-      <button onClick={() => setCurrentPage(currentPage + 1)}>Cargar mas Personajes</button>
+      <div className='button-container'>
+        <button className='see-more-button' onClick={() => setCurrentPage(currentPage + 1)}>Mostrar más personajes</button>
+      </div>
     </section>
   )
 }
