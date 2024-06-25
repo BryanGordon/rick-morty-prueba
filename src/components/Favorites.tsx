@@ -4,6 +4,7 @@ import { FavZonesContext } from '../context/FavsZonesContext'
 import { LoginContext } from '../context/LoginContext'
 import { Navbar } from './Navbar'
 import { Hearth } from '../icons/Hearth'
+import img from '../assets/rick-morty.png'
 
 export function Favorites () {
   const favsCharacters = useContext(FavsContext)
@@ -85,8 +86,11 @@ export function Favorites () {
     )
   } else {
     return (
-      <div>
-        Aún no has iniciado sesión
+      <div className='restricted-favs-container'>
+        <img src={img} alt='rick-morty-pic' />
+        <h4>
+          Para poder ver la lista de favoritos debes iniciar sesión primero.
+        </h4>
       </div>
     )
   }
