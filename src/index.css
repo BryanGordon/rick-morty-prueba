@@ -153,7 +153,6 @@ input {
   border-radius: 10px;
   border: 0;
   padding: 7px 30px;
-  
 }
 
 #login-section {
@@ -189,4 +188,16 @@ input {
   border: none;
   padding: 10px 30px;
   cursor: pointer;
+}
+
+.restricted-favs-container {
+  display: flex;
+  height: 80vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.restricted-favs-container > h4 {
+  color: aquamarine;
 }
