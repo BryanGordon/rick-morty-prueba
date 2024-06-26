@@ -26,6 +26,7 @@ export function Favorites () {
   }
 
   if (logged) {
+    console.log('favortitos   ' + logged)
     return (
       <>
         <header>
@@ -86,12 +87,18 @@ export function Favorites () {
     )
   } else {
     return (
-      <div className='restricted-favs-container'>
-        <img src={img} alt='rick-morty-pic' />
-        <h4>
-          Para poder ver la lista de favoritos debes iniciar sesión primero.
-        </h4>
-      </div>
+      <>
+        <header id='header-login'>
+          <Navbar />
+        </header>
+
+        <div className='restricted-favs-container'>
+          <img src={img} alt='rick-morty-pic' />
+          <h4>
+            Para poder ver la lista de favoritos debes iniciar sesión primero.
+          </h4>
+        </div>
+      </>
     )
   }
 }
