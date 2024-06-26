@@ -156,8 +156,12 @@ input {
 }
 
 #login-section {
-  height: 80vh;
+  height: 50vh;
   align-content: center;
+}
+
+#header-login {
+  margin-top: 5px;
 }
 
 .delete-button {
@@ -192,10 +196,16 @@ input {
 
 .restricted-favs-container {
   display: flex;
-  height: 80vh;
+  height: 70vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.restricted-favs-container > img {
+  width: 450px;
+  height: 350px;
+  border-radius: 10px;
 }
 
 .restricted-favs-container > h4 {
