@@ -62,9 +62,16 @@ export function Login () {
     )
   } else {
     return (
-      <div>
-        <button>Cerrar cesion</button>
-      </div>
+      <>
+        <header>
+          <Navbar />
+        </header>
+
+        <div className='button-container'>
+          <button onClick={() => setLogged(!logged)} className='form-button'>Cerrar sesión</button>
+        </div>
+      </>
+
     )
   }
 }
