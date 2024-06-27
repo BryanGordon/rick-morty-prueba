@@ -49,9 +49,14 @@ ul {
   padding: 0;
 }
 
-.link{
+.link {
   text-decoration: none;
   color: aqua;
+}
+
+.link.active{
+  font-weight: 700;
+  color:  rgba(237, 237, 237, 0.934);
 }
 
 /* Personajes */
