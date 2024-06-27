@@ -1,20 +1,20 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export function Navbar () {
   return (
     <nav>
       <ul>
         <li>
-          <Link className='link' to='/'>Home</Link>
+          <NavLink className='link' to='/'>Home</NavLink>
         </li>
         <li>
-          <Link className='link' to='/ubicaciones'>Ubicaciones</Link>
+          <NavLink className='link' to='/ubicaciones'>Ubicaciones</NavLink>
         </li>
         <li>
-          <Link className='link' to='/login'>Login</Link>
+          <NavLink className='link' to='/login'>Login</NavLink>
         </li>
         <li>
-          <Link className='link' to='/favoritos'>Favoritos</Link>
+          <NavLink className='link' to='/favoritos'>Favoritos</NavLink>
         </li>
       </ul>
     </nav>
