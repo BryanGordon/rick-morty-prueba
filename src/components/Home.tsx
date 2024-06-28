@@ -4,14 +4,16 @@ import { FavsContext } from '../context/FavsContext'
 import { type Characters } from '../types/api'
 import { UseData } from '../hook/useData'
 import { Navbar } from './Navbar'
+import { useValidate } from '../hook/useValidate'
 
 export function Home () {
-  const context = useContext(FavsContext)
+  // const context = useContext(FavsContext)
   const { getCharacters } = UseData()
   const firstCharacters = useRef<Characters[]>([])
   const [character, setCharacters] = useState<Characters[]>([])
   const [currentPage, setCurrentPage] = useState(1)
-
+  const { getValidationCharacters } = useValidate()
+  /*
   if (!context) {
     return (
       <div>
@@ -19,7 +21,9 @@ export function Home () {
       </div>
     )
   }
-  const { favs, setFavs } = context
+  */
+  const aux = getValidationCharacters()
+  const { favs, setFavs } = aux
 
   const handleFavorites = (fav: Characters) => {
     const aux = [...favs]
