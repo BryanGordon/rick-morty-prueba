@@ -12,7 +12,7 @@ export function Home () {
   const firstCharacters = useRef<Characters[]>([])
   const [character, setCharacters] = useState<Characters[]>([])
   const [currentPage, setCurrentPage] = useState(1)
-  const { getValidationCharacters } = useValidate()
+  const { contextCharacters } = useValidate()
   /*
   if (!context) {
     return (
@@ -22,8 +22,7 @@ export function Home () {
     )
   }
   */
-  const aux = getValidationCharacters()
-  const { favs, setFavs } = aux
+  const { favs, setFavs } = contextCharacters
 
   const handleFavorites = (fav: Characters) => {
     const aux = [...favs]
