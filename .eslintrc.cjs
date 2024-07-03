@@ -19,6 +19,7 @@ module.exports = {
     'prefer-const': 'off',
     'react-hooks/rules-of-hooks': 'off',
     'react-hooks/exhaustive-deps': 'off',
-    'no-return-assign': 'off'
+    'no-return-assign': 'off',
+    'react/jsx-key': 'off'
   },
 }
