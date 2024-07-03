@@ -1,19 +1,32 @@
 import { Star } from "../icons/Star"
 import { Characters } from "../types/api"
+import { useValidate } from "../hook/useValidate"
+import { Error406 } from "./Error406"
 
 interface Props {
   character: Characters
 }
 
 export function CharactersCard (characters: Props) {
+  const { contextCharacters } = useValidate()
+
+  if (!contextCharacters) return <Error406 />
+
+  const { favs, setFavs } = contextCharacters
+
+  const handleFavorites = (fav: Characters) => {
+    const aux = [...favs]
+    aux.push(fav)
+    setFavs(aux)
+  }
   return (
-    <article key={characters.character.id} className='player-card'>
+    <article className='player-card'>
       <picture>
         <img src={characters.character.image} alt={characters.character.name} />
       </picture>
       <h4>
         {characters.character.name}
-        <span id='icon-star' onClick={() => handleFavorites(characters)}>
+        <span id='icon-star' onClick={() => handleFavorites(characters.character)}>
           <Star />
         </span>
       </h4>
