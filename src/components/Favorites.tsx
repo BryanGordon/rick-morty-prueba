@@ -33,6 +33,7 @@ export function Favorites () {
           <h1>Lista de favoritos</h1>
           <Navbar />
         </header>
+
         <div className='players-container'>
           {
             favsCharacters?.favs.map((character) => (
@@ -50,6 +51,7 @@ export function Favorites () {
                   <span className='status-field'>{character.status}</span>
                   <h5>Genero: </h5>
                   <span className='gender-field'>{character.gender}</span>
+
                   <button className='delete-button' onClick={() => handleDeleteFavCharacters(character.id)}>
                     Eliminar
                     <Hearth />
@@ -59,6 +61,7 @@ export function Favorites () {
               </article>
             ))
           }
+
           {
             favsZones?.favZones.map((location) => (
               <article key={location.id} className='zones-card'>
