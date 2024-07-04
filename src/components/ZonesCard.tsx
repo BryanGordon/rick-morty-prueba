@@ -1,7 +1,7 @@
-import { Star } from "../icons/Star"
-import { Locations } from "../types/api"
-import { useValidate } from "../hook/useValidate"
-import { Error406 } from "./Error406"
+import { Star } from '../icons/Star'
+import { Locations } from '../types/api'
+import { useValidate } from '../hook/useValidate'
+import { Error406 } from './Error406'
 
 interface Props {
   location: Locations
