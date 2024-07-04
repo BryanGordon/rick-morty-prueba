@@ -27,7 +27,7 @@ export function Login () {
       setLogged(!logged)
       navigate('/')
     } else {
-      alert('Usuario no coincide')
+      alert('El usuario o contraseña no coinciden.')
     }
   }
 
