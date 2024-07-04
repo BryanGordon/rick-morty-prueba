@@ -5,6 +5,7 @@ import { LoginContext } from '../context/LoginContext'
 import { Navbar } from './Navbar'
 import { Hearth } from '../icons/Hearth'
 import img from '../assets/rick-morty.png'
+import { Error406 } from './Error406'
 
 export function Favorites () {
   const favsCharacters = useContext(FavsContext)
@@ -12,7 +13,7 @@ export function Favorites () {
   const context = useContext(LoginContext)
 
   if (context === undefined) {
-    return <div>Loading...</div>
+    return <Error406 />
   }
 
   const { logged } = context
