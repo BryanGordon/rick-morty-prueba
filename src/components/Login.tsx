@@ -3,6 +3,7 @@ import { useState, useContext } from 'react'
 import { LoginContext } from '../context/LoginContext'
 import { Navbar } from './Navbar'
 import { useNavigate } from 'react-router-dom'
+import { Error406 } from './Error406'
 
 export function Login () {
   const [user, setUser] = useState('')
@@ -15,7 +16,7 @@ export function Login () {
 
   if (context === undefined) {
     return (
-      <div>Loading...</div>
+      <Error406 />
     )
   }
 
