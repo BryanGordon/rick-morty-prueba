@@ -9,9 +9,9 @@ export function Error406 () {
 
       <div className='restricted-favs-container'>
         <img src='https://midu.dev/images/this-is-fine-404.gif' alt='error-dog-picture' />
-        <h4>
+        <h3>
           Error al cargar los recursos.
-        </h4>
+        </h3>
       </div>
     </section>
   )
