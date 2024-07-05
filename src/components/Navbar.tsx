@@ -1,23 +1,15 @@
 import { NavLink } from 'react-router-dom'
-import { useContext } from 'react'
-import { LoginContext } from '../context/LoginContext'
+import { useValidate } from '../hook/useValidate'
+import { Error406 } from './Error406'
 
 export function Navbar () {
-  const context = useContext(LoginContext)
+  const { contextLogin } = useValidate()
 
-  let aux = ''
+  let state = ''
 
-  if (context === undefined) {
-    return (
-      <div>
-        Loading...
-      </div>
-    )
-  }
+  if (!contextLogin) return <Error406 />
 
-  const { logged } = context
-
-  logged ? aux = 'Signout' : aux = 'Login'
+  contextLogin.logged ? state = 'Signout' : state = 'Login'
 
   return (
     <nav>
@@ -29,7 +21,7 @@ export function Navbar () {
           <NavLink className='link' to='/ubicaciones'>Ubicaciones</NavLink>
         </li>
         <li>
-          <NavLink className='link' to='/login'>{aux}</NavLink>
+          <NavLink className='link' to='/login'>{state}</NavLink>
         </li>
         <li>
           <NavLink className='link' to='/favoritos'>Favoritos</NavLink>
