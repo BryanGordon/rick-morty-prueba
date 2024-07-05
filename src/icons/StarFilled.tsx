@@ -1,7 +1,7 @@
 export function StarFilled () {
   <svg
-    width='24'
-    height='24'
+    width='21'
+    height='21'
     viewBox='0 0 24 24'
     fill='#cc9d19'
   >
